@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        // لیست لینک‌هایی که کاربر به یکی از آن‌ها هدایت می‌شود
+        const links = [
+            "https://survey.porsline.ir/s/cGOsbgoU",
+            "https://survey.porsline.ir/s/CdBaFDkR",
+            "https://survey.porsline.ir/s/BgA4oIik",
+            "https://survey.porsline.ir/s/rxw1Qrju"
+        ];
+
+        // انتخاب یک لینک به صورت تصادفی
+        const randomLink = links[Math.floor(Math.random() * links.length)];
+
+        // هدایت کاربر به لینک انتخاب‌شده
+        window.location.href = randomLink;
+    </script>
+</head>
+<body>
+    <p>در حال انتقال...</p>
+</body>
+</html>
