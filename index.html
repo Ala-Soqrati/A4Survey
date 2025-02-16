@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
     <script>
-        // لیست لینک‌هایی که کاربر به یکی از آن‌ها هدایت می‌شود
+        // لیست لینک‌هایی که کاربر به ترتیب به آن‌ها هدایت خواهد شد
         const links = [
             "https://survey.porsline.ir/s/cGOsbgoU",
             "https://survey.porsline.ir/s/CdBaFDkR",
@@ -13,11 +13,23 @@
             "https://survey.porsline.ir/s/rxw1Qrju"
         ];
 
-        // انتخاب یک لینک به صورت تصادفی
-        const randomLink = links[Math.floor(Math.random() * links.length)];
+        // دریافت شماره لینک ذخیره‌شده در localStorage
+        let index = localStorage.getItem("redirectIndex");
 
-        // هدایت کاربر به لینک انتخاب‌شده
-        window.location.href = randomLink;
+        // اگر مقدار ذخیره نشده باشد، مقدار را 0 قرار می‌دهیم
+        if (index === null) {
+            index = 0;
+        } else {
+            // مقدار را به عدد تبدیل می‌کنیم
+            index = parseInt(index);
+        }
+
+        // هدایت به لینک فعلی
+        window.location.href = links[index];
+
+        // به‌روزرسانی ایندکس برای ورود بعدی
+        index = (index + 1) % links.length; // وقتی به انتها رسید، دوباره از اول شروع می‌شود
+        localStorage.setItem("redirectIndex", index);
     </script>
 </head>
 <body>
